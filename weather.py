@@ -29,7 +29,10 @@ print (result)
 3℃
 </td>'''
 
-pattern='<td>([0-9]{2}.*?[0-9]{2}.*?)</td>'
+#pattern='<td>([0-9]{2}.*?[0-9]{2}.*?)</td>'
+pattern='<td>\n(.*\n.*)\n</td>'
 temperature=re.findall(pattern,result)#温度
-print(temperature)
+#print(temperature)
+for x in temperature:
+	print(x.replace('\n',''))
 #把温度取出来，比如：5℃～3℃
