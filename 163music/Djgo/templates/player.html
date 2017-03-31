@@ -1,0 +1,56 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Player Lee</title>
+
+    <link rel="stylesheet" href="{% static 'player/css/style.css' %}" media="screen" type="text/css" />
+
+</head>
+
+<body>
+<div style="text-align:center;clear:both">
+</div>
+  <div id="container">
+	<label class="to-back-label" for="to-back"><i class="fa fa-bars fa-lg"></i></label>
+	<input type="checkbox" id="to-back"><!-- playlist toggle -->
+	<canvas id="progress" width="320" height="320"></canvas><!-- progress bar -->
+	<div id="player">
+		<audio id="audio" controls>
+			<source src="{{ cid }}" type="audio/mpeg" codecs="mp3"></source>
+		</audio>
+		<img src="{%static 'player/1.300.jpg' %}"><!-- album cover -->
+		<label class="to-lyrics-label" for="to-lyrics"><i class="fa fa-caret-down fa-lg"></i></label>
+		<input type="checkbox" id="to-lyrics"><!-- lyrics toggle -->
+		<div class="cover">
+			<div class="controls">
+				<button id="play-pause" title="Play" onclick="togglePlayPause()"><i class="fa fa-play fa-3x"></i></button>
+				<input id="volume" name="volume" min="0" max="1" step="0.1" type="range" onchange="setVolume()" />
+			</div><!-- #controls -->
+			<div class="info">
+			</div><!-- #info -->
+			<div class="lyrics">
+			
+			</div><!-- #lyrics -->
+		</div><!-- #cover -->
+	</div><!-- #player -->
+	<div id="flip-back">
+		<ul class="playlist">
+            <br/><br/>
+		<h3 style="color: darkblue">By Lee</h3>
+		</ul>
+	</div><!-- #flip-back -->
+</div><!-- #container -->
+
+<div class="credits">
+</div><!-- #credits -->
+
+  <script src="{%static 'player/js/index.js' %}"></script>
+
+</body>
+
+</html>

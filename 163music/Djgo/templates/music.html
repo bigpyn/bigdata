@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>lov3_music</title>
+	<link rel="stylesheet" href="{%static '/mis/css/style.css' %}" type="text/css">
+</head>
+
+<body>
+
+<div id="container">
+
+    <a href="/music/">《《 Back</a>
+	<table class="zebra">
+    <caption>by Lee With Django</caption>
+		<thead>
+        	<tr>
+				<th>Name</th>
+				<th>Artists</th>
+				<th>Listen</th>
+                <th>DownLoad</th>
+            </tr>
+		</thead>
+        <tbody>
+        {% for music in musics %}
+		<tr>
+		<td>{{music.0}}</td>
+		<td>{{music.2}}</td>
+		<td>
+            <a href="/down/?id={{ music.1 }}">Listen</a>
+        </td>
+        <td><a href="{{ music.1 }}" download="{{ music.0 }}{{ music.2 }}.mp3">DownLoad</a> </td>
+		</tr>
+        {% endfor %}
+        </tbody>
+	</table>
+</div>
+
+    
+</body>
+</html>

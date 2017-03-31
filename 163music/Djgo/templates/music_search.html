@@ -1,0 +1,23 @@
+{%load staticfiles%}
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>search</title>
+<link rel="stylesheet" type="text/css" href="{%static 'music/style.css' %}">
+</head>
+<body>
+    <script type="text/javascript" src="{%static 'music/index.js' %}"></script>
+<form action="/music/" method="POST">
+    {% csrf_token %}
+<input type="text" placeholder="Please input" name="search">
+
+<input type="submit" value="search">
+</form>
+
+
+</body>
+</html>
+
+
+<!--27.22.50.21!-->
