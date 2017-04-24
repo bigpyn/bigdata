@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <ul>
+        {% for item in img_list %}
+        <li><img style="height: 50px;width: 50px;"  src="/statics/img/{{item}}"></li>
+        {% end %}
+    </ul>
+    <form action="index" method="POST" enctype="multipart/form-data">
+        <input type="text" name="user" />
+        <h3>爱好</h3>
+        <input name="favor" type="checkbox" value="1" />篮球；
+        <input name="favor" type="checkbox" value="1" />足球；
+        <input name="favor" type="checkbox" value="1" />排球；
+        <input type="file" name="fafafa" />
+        <input type="submit" value="提交">
+    </form>
+    <p>
+        <input type="button" onclick="XhrPostRequest();" value="Ajax请求"/>
+    </p>
+    <script type="text/javascript" src="/statics/jquery-1.12.4.js"></script>
+    <script>
+        function XmlSendRequest(){
+            $.ajax({
+                url:"/index",
+                type:"POST",
+                data: {'k1': 'v1'},
+                dataType: 'text',
+                success:function(data, statusText, xmlHttpRequest){
+                    console.log(data);
+                }
+            })
+        }
+    </script>
+</body>
+</html>
